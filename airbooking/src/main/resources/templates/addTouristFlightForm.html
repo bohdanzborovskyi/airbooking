@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Update User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>	
+	
+	<form th:action="@{/seats/findSeats}">
+	<div class="col-lg-3" >
+		<label for="selectT">Choose a tourist</label>
+    	<select class="form-control" id="selectT" th:name="touristid">
+    		<option value="">Select tourist</option>
+    		<option th:each="tourist : ${tourists}" th:value="${tourist.id}" th:text="${tourist.surname} + ':' + ${tourist.name}"></option>
+   	    </select>
+	</div>
+	<div class="col-lg-3">
+		<label for="selectF">Choose a flight</label>	
+    	<select class="form-control" id="selecF" th:name="flightid">
+    	<option value="">Select flight</option>
+    	<option th:each="flight : ${flights}" th:value="${flight.id}" th:text="${flight.arrivalTime} + ':' + ${flight.ticketPrice}"></option>
+   	    </select>
+	</div>
+	<p/>
+	<div class="col-lg-3">
+		<button class="btn btn-primary" type="submit">Choose a seat</button>
+	</div>	
+	</form>
+	
+<body>
+   
+</body>
+
+</html>

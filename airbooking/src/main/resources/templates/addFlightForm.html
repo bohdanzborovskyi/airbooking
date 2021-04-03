@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Update User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container my-5">
+        <h3> Update Contract</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-8">
+                    <form action="#" th:action="@{/flights/addFlight}" th:object="${flight}"  method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="arrivalTime" class="col-form-label">Arrival time</label> <input type="datetime-local" th:field="*{arrivalTime}" class="form-control" id="arrivalTime">
+                            	<div th:if="${#fields.hasErrors('arrivalTime')}" th:errors="*{arrivalTime}" class="alert alert-danger" role="alert"> </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="departureTime" class="col-form-label">Departure time</label> <input type="datetime-local" th:field="*{departureTime}" class="form-control" id="departureTime">
+                           		<div th:if="${#fields.hasErrors('departureTime')}" th:errors="*{departureTime}" class="alert alert-danger" role="alert"> </div>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="seatsCount" class="col-form-label">Seats Count</label> <input type="text" th:field="*{seatsCount}" class="form-control" id="seatsCount">                            
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="ticketPrice" class="col-form-label">Ticket Price</label> <input type="text" th:field="*{ticketPrice}" class="form-control" id="ticketPrice">
+                           		<div th:if="${#fields.hasErrors('ticketPrice')}" th:errors="*{ticketPrice}" class="alert alert-danger" role="alert"> </div>
+                            </div>                                                   
+                            <div class="form-group col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Add Flight">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
